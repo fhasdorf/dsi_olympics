@@ -30,12 +30,11 @@ def load_data():
 data = load_data()
 
 # 4. Interaktivität: Multiselect für die Bootsklassen
-st.sidebar.header("Filter")
-available_events = data['event_name'].unique()
-selected_events = st.sidebar.multiselect(
+st.subheader("Filter") # sidebar entfernt
+selected_events = st.multiselect( # sidebar entfernt
     "Wähle Bootsklassen zum Vergleich:",
     options=available_events,
-    default=available_events # Zeigt am Anfang alle an
+    default=available_events
 )
 
 # 5. Daten filtern basierend auf der Auswahl
