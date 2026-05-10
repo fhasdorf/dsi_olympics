@@ -14,15 +14,13 @@ Historische Daten zeigen einen drastischen Wandel: Der durchschnittliche Body Ma
 
 Es ist die pure **Physik des Bootes**. 
 
-Wähle unten die verschiedenen Bootsklassen aus, um zu sehen, wie der Wechsel von schweren Kielbooten zu agilen Skiffs und Windsurfern das physische Anforderungsprofil der Athletinnen radikal verändert hat.
+Wähle links die verschiedenen Bootsklassen aus, um zu sehen, wie der Wechsel von schweren Kielbooten zu agilen Skiffs und Windsurfern das physische Anforderungsprofil der Athletinnen radikal verändert hat.
 """)
 
-# 3. Daten laden (Wir simulieren das hier kurz, du nutzt deine CSV)
-# In deiner echten Datei nutzt du: df = pd.read_csv("physical_evolution.csv")
-# Hier lade ich zur Demonstration den Code-Block, den wir vorher hatten
+
 @st.cache_data # Wichtig: Caching, damit die App schnell bleibt
 def load_data():
-    # Annahme: Deine 'physical_evolution.csv' liegt im gleichen Ordner
+    
     df = pd.read_csv('physical_evolution.csv')
     df['bmi'] = df['weight'] / ((df['height'] / 100) ** 2)
     sailing_women = df[(df['sport_name'] == 'Sailing') & (df['sex'] == 'F')].copy()
