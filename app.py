@@ -14,13 +14,15 @@ Historische Daten zeigen einen drastischen Wandel: Der durchschnittliche Body Ma
 
 Es ist die pure **Physik des Bootes**. 
 
-Wähle links die verschiedenen Bootsklassen aus, um zu sehen, wie der Wechsel von schweren Kielbooten zu agilen Skiffs und Windsurfern das physische Anforderungsprofil der Athletinnen radikal verändert hat.
+Wähle unten die verschiedenen Bootsklassen aus, um zu sehen, wie der Wechsel von schweren Kielbooten zu agilen Skiffs und Windsurfern das physische Anforderungsprofil der Athletinnen radikal verändert hat.
 """)
 
-
+# 3. Daten laden (Wir simulieren das hier kurz, du nutzt deine CSV)
+# In deiner echten Datei nutzt du: df = pd.read_csv("physical_evolution.csv")
+# Hier lade ich zur Demonstration den Code-Block, den wir vorher hatten
 @st.cache_data # Wichtig: Caching, damit die App schnell bleibt
 def load_data():
-    
+    # Annahme: Deine 'physical_evolution.csv' liegt im gleichen Ordner
     df = pd.read_csv('physical_evolution.csv')
     df['bmi'] = df['weight'] / ((df['height'] / 100) ** 2)
     sailing_women = df[(df['sport_name'] == 'Sailing') & (df['sex'] == 'F')].copy()
@@ -30,15 +32,12 @@ def load_data():
 data = load_data()
 
 # 4. Interaktivität: Multiselect für die Bootsklassen
-st.subheader("Filter")
-
-# DIESE ZEILE HAT GEFEHLT: Wir müssen die Liste der Bootsklassen erst definieren
+st.sidebar.header("Filter")
 available_events = data['event_name'].unique()
-
-selected_events = st.multiselect(
+selected_events = st.sidebar.multiselect(
     "Wähle Bootsklassen zum Vergleich:",
     options=available_events,
-    default=available_events
+    default=available_events # Zeigt am Anfang alle an
 )
 
 # 5. Daten filtern basierend auf der Auswahl
