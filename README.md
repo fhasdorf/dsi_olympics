@@ -1,6 +1,7 @@
 # ⛵ Olympia Segel-Analyse: Die unsichtbare Revolution
 
-[[See Streamlit-App]((https://dsiolympicsfh.streamlit.app/))]
+[See streamlit app]([https://beispiel.de](https://dsiolympicsfh.streamlit.app/))
+
 
 Dieses Projekt analysiert die historische Entwicklung der körperlichen Merkmale von olympischen Athleten ab dem Jahr 1960. Der besondere Fokus dieses Deep Dives liegt auf dem **Segelsport der Frauen**. 
 
